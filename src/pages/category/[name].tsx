@@ -1,19 +1,19 @@
-import { useRouter } from "next/router";
 import Head from "next/head";
 import questions from "../questions.json";
 import { useState } from "react";
-import { NextPageContext } from "next";
 
 
 export default function CategoryName(props) {
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
 
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const mappedQuestions: {
     nr: number;
     question: string;
     answer: string;
     category: string;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   }[] = props.questions;
 
   const categories: {
@@ -37,6 +37,7 @@ export default function CategoryName(props) {
     }
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   const categoryQuestions = categories[props.name as string]!;
 
   const [randomQuestion, setNextRandomQuestion] = useState(props.firstRandomQuestion as {
@@ -57,6 +58,7 @@ export default function CategoryName(props) {
   return (
     <>
       <Head>
+        {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
         <title>{props.name}</title>
         <meta name="description" content="Amaaaazing - zdaj dyplom 2023." />
         <link rel="icon" href="/favicon.ico" />
@@ -90,6 +92,7 @@ export default function CategoryName(props) {
 export function getServerSideProps(context) {
   return {
     props: {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       name: context.params.name,
       questions: questions,
       firstRandomQuestion: getRandomItem(questions)
