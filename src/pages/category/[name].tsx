@@ -40,6 +40,7 @@ export default function CategoryName(props) {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   const categoryQuestions = categories[props.name as string]!;
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   const [randomQuestion, setNextRandomQuestion] = useState(props.firstRandomQuestion as {
     nr: number;
     question: string;
@@ -92,7 +93,7 @@ export default function CategoryName(props) {
 export function getServerSideProps(context) {
   return {
     props: {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment
       name: context.params.name,
       questions: questions,
       firstRandomQuestion: getRandomItem(questions)
