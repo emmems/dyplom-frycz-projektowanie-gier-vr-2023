@@ -76,7 +76,7 @@ export default function CategoryName(props) {
                   Pokaż odpowiedź
                 </button>
                 {isAnswerVisible &&
-                  <article dangerouslySetInnerHTML={{__html: randomQuestion.answer }}></article>
+                  <article dangerouslySetInnerHTML={{__html: randomQuestion.answer.replaceAll('newLineXD', '<br>') }}></article>
                 }
                 <button onClick={nextQuestion} className="px-3 py-2 rounded-xl text-white bg-blue-500 hover:bg-blue-300 transition">
                   Następne pytanie
